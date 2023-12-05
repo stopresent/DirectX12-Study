@@ -43,13 +43,22 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     MSG msg;
 
     // 기본 메시지 루프입니다:
-    while (GetMessage(&msg, nullptr, 0, 0))
+    while (true)
     {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
         {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
+            if (msg.message == WM_QUIT)
+                break;
+
+            if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+            {
+                TranslateMessage(&msg);
+                DispatchMessage(&msg);
+            }
         }
+        
+        // TODO
+
     }
 
     return (int) msg.wParam;
@@ -59,7 +68,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
 //
 //  함수: MyRegisterClass()
-//
+//D
 //  용도: 창 클래스를 등록합니다.
 //
 ATOM MyRegisterClass(HINSTANCE hInstance)
