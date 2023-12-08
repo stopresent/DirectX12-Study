@@ -3,7 +3,8 @@
 // 인력 사무소
 // GPU와 핑퐁 역할을 하는 사무소!
 // 각종 개체를 생성하는 등등을 담당한다.
-// 예전에는 여기서 모든걸 담당했는데 추후 CommandQueue, SwapChain, DescriptorHeap 등등으로 나뉘어졌다.
+// 예전에는 여기서 모든걸 담당했는데 
+// 추후 CommandQueue, SwapChain, DescriptorHeap 등등으로 나뉘어졌다.
 class Device
 {
 public:
